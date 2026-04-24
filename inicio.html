@@ -1,35 +1,304 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Inicio</title>
   <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      padding: 30px;
-      color: #1f2937;
-      line-height: 1.6;
+    :root {
+      --color-principal: #1f4e79;
+      --color-secundario: #f4f7fb;
+      --color-acento: #2f80ed;
+      --color-texto: #1f2937;
+      --color-muted: #5f6b7a;
+      --color-blanco: #ffffff;
+      --color-borde: #d9e2ec;
     }
 
-    h1 {
-      color: #1f4e79;
-      margin-bottom: 15px;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--color-secundario);
+      color: var(--color-texto);
+      line-height: 1.6;
+      padding: 30px;
+    }
+
+    .contenedor-inicio {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      background: var(--color-blanco);
+      border: 1px solid var(--color-borde);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
+      margin-bottom: 28px;
+    }
+
+    .hero img {
+      width: 100%;
+      height: 330px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-contenido {
+      padding: 30px;
+    }
+
+    .hero-contenido h1 {
+      color: var(--color-principal);
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .hero-contenido p {
+      color: var(--color-muted);
+      font-size: 1.05rem;
+    }
+
+    .grid-subsecciones {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-bottom: 28px;
     }
 
     .tarjeta {
-      background: #ffffff;
-      border: 1px solid #d9e2ec;
-      border-radius: 12px;
+      background: var(--color-blanco);
+      border: 1px solid var(--color-borde);
+      border-radius: 16px;
       padding: 24px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    }
+
+    .tarjeta h2,
+    .seccion h2 {
+      color: var(--color-principal);
+      margin-bottom: 12px;
+      font-size: 1.35rem;
+    }
+
+    .tarjeta p,
+    .seccion p {
+      color: var(--color-muted);
+      margin-bottom: 10px;
+    }
+
+    .seccion {
+      background: var(--color-blanco);
+      border: 1px solid var(--color-borde);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 28px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    }
+
+    .lista-orientaciones {
+      margin-left: 20px;
+      margin-top: 10px;
+      color: var(--color-muted);
+    }
+
+    .lista-orientaciones li {
+      margin-bottom: 8px;
+    }
+
+    .videos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 18px;
+    }
+
+    .video-card {
+      background: #f8fafc;
+      border: 1px solid var(--color-borde);
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    .video-card h3 {
+      color: var(--color-principal);
+      font-size: 1.05rem;
+      margin-bottom: 10px;
+    }
+
+    video {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--color-borde);
+      background: #000;
+    }
+
+    .nota {
+      background: #eef6ff;
+      border-left: 5px solid var(--color-acento);
+      padding: 18px;
+      border-radius: 10px;
+      color: var(--color-texto);
+      margin-top: 18px;
+    }
+
+    .boton {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 11px 18px;
+      background: var(--color-acento);
+      color: var(--color-blanco);
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .boton:hover {
+      background: #1c65c9;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 18px;
+      }
+
+      .hero img {
+        height: 220px;
+      }
+
+      .hero-contenido {
+        padding: 22px;
+      }
+
+      .hero-contenido h1 {
+        font-size: 1.6rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="tarjeta">
-    <h1>Inicio</h1>
-    <p>Contenido correspondiente a la página de inicio.</p>
-  </div>
+  <main class="contenedor-inicio">
+    <section class="hero">
+      <!-- Reemplace imagen-inicio.jpg por el nombre real de su imagen -->
+      <img src="imagenes/imagen-inicio.jpg" alt="Imagen principal del curso o recurso académico" />
+
+      <div class="hero-contenido">
+        <h1>Bienvenido al espacio principal del curso</h1>
+        <p>
+          En esta página encontrará una introducción general, orientaciones para el estudio,
+          recursos iniciales y videos de apoyo que le permitirán comprender la estructura del
+          contenido académico.
+        </p>
+      </div>
+    </section>
+
+    <section class="grid-subsecciones">
+      <article class="tarjeta">
+        <h2>Propósito</h2>
+        <p>
+          Presentar los contenidos iniciales del curso o módulo, destacando su importancia
+          en la formación académica y profesional del estudiante.
+        </p>
+      </article>
+
+      <article class="tarjeta">
+        <h2>Resultados esperados</h2>
+        <p>
+          Al finalizar esta sección, el estudiante podrá identificar los aspectos centrales
+          del tema y relacionarlos con situaciones prácticas de su campo de formación.
+        </p>
+      </article>
+
+      <article class="tarjeta">
+        <h2>Orientación inicial</h2>
+        <p>
+          Se recomienda revisar primero la introducción, luego observar los videos y,
+          finalmente, desarrollar las actividades propuestas en el entorno virtual.
+        </p>
+      </article>
+    </section>
+
+    <section class="seccion">
+      <h2>Descripción general</h2>
+      <p>
+        Esta sección de inicio funciona como punto de entrada para el estudiante. Su finalidad
+        es presentar el contexto del tema, explicar la ruta de aprendizaje y orientar el uso de
+        los recursos disponibles. Puede adaptarse para una asignatura, una unidad didáctica,
+        una semana de trabajo o un módulo específico dentro de Moodle.
+      </p>
+      <p>
+        Se sugiere que el contenido sea claro, breve y acompañado de recursos visuales que
+        permitan al estudiante comprender rápidamente qué debe revisar y cómo debe avanzar.
+      </p>
+    </section>
+
+    <section class="seccion">
+      <h2>Subsecciones sugeridas</h2>
+      <ul class="lista-orientaciones">
+        <li><strong>Introducción al tema:</strong> explique brevemente la importancia del contenido.</li>
+        <li><strong>Objetivos de aprendizaje:</strong> indique qué se espera que logre el estudiante.</li>
+        <li><strong>Recursos principales:</strong> incluya documentos, videos, lecturas o enlaces relevantes.</li>
+        <li><strong>Actividades recomendadas:</strong> oriente al estudiante sobre lo que debe realizar.</li>
+        <li><strong>Recomendaciones:</strong> agregue sugerencias para organizar el tiempo de estudio.</li>
+      </ul>
+    </section>
+
+    <section class="seccion">
+      <h2>Videos de apoyo</h2>
+      <p>
+        En esta sección puede incorporar videos en formato MP4. Para que funcionen correctamente,
+        coloque los archivos de video dentro de una carpeta llamada <strong>videos</strong> y reemplace
+        los nombres de ejemplo por los nombres reales de sus archivos.
+      </p>
+
+      <div class="videos">
+        <article class="video-card">
+          <h3>Video 1: Introducción al tema</h3>
+          <video controls preload="metadata">
+            <source src="videos/video-introduccion.mp4" type="video/mp4" />
+            Su navegador no soporta la reproducción de videos HTML5.
+          </video>
+        </article>
+
+        <article class="video-card">
+          <h3>Video 2: Explicación del contenido</h3>
+          <video controls preload="metadata">
+            <source src="videos/video-explicacion.mp4" type="video/mp4" />
+            Su navegador no soporta la reproducción de videos HTML5.
+          </video>
+        </article>
+
+        <article class="video-card">
+          <h3>Video 3: Orientaciones para la actividad</h3>
+          <video controls preload="metadata">
+            <source src="videos/video-orientaciones.mp4" type="video/mp4" />
+            Su navegador no soporta la reproducción de videos HTML5.
+          </video>
+        </article>
+      </div>
+
+      <div class="nota">
+        <strong>Nota:</strong> Si esta página será subida a Moodle, asegúrese de cargar también la carpeta
+        <strong>imagenes</strong> y la carpeta <strong>videos</strong>, respetando los mismos nombres utilizados en el código.
+      </div>
+    </section>
+
+    <section class="seccion">
+      <h2>Recomendaciones para el estudiante</h2>
+      <p>
+        Revise los recursos en el orden sugerido, tome apuntes de las ideas principales y relacione
+        los conceptos con ejemplos reales. Posteriormente, ingrese a las demás opciones del menú
+        para continuar con el desarrollo de las actividades académicas.
+      </p>
+      <a href="recursos.html" class="boton">Continuar con los recursos</a>
+    </section>
+  </main>
 </body>
 </html>
