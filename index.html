@@ -1,1 +1,210 @@
-<h1>Git hub page test</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Página principal con menú lateral</title>
+  <style>
+    :root {
+      --color-principal: #1f4e79;
+      --color-secundario: #f4f7fb;
+      --color-acento: #2f80ed;
+      --color-texto: #1f2937;
+      --color-blanco: #ffffff;
+      --color-borde: #d9e2ec;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--color-secundario);
+      color: var(--color-texto);
+      line-height: 1.6;
+    }
+
+    .contenedor {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .menu-lateral {
+      width: 270px;
+      background: var(--color-principal);
+      color: var(--color-blanco);
+      padding: 25px 18px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    .menu-lateral h2 {
+      font-size: 1.3rem;
+      margin-bottom: 25px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      padding-bottom: 15px;
+    }
+
+    .menu-lateral ul {
+      list-style: none;
+    }
+
+    .menu-lateral li {
+      margin-bottom: 10px;
+    }
+
+    .menu-lateral a {
+      display: block;
+      color: var(--color-blanco);
+      text-decoration: none;
+      padding: 12px 15px;
+      border-radius: 8px;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .menu-lateral a:hover,
+    .menu-lateral a.activo {
+      background: rgba(255, 255, 255, 0.18);
+      transform: translateX(4px);
+    }
+
+    .contenido {
+      margin-left: 270px;
+      width: calc(100% - 270px);
+      min-height: 100vh;
+      padding: 25px;
+    }
+
+    .marco-contenido {
+      width: 100%;
+      height: calc(100vh - 50px);
+      border: 1px solid var(--color-borde);
+      border-radius: 14px;
+      background: var(--color-blanco);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    }
+
+    @media (max-width: 768px) {
+      .contenedor {
+        flex-direction: column;
+      }
+
+      .menu-lateral {
+        position: relative;
+        width: 100%;
+        height: auto;
+      }
+
+      .menu-lateral ul {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 8px;
+      }
+
+      .contenido {
+        margin-left: 0;
+        width: 100%;
+        padding: 15px;
+      }
+
+      .marco-contenido {
+        height: 75vh;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <aside class="menu-lateral">
+      <h2>Menú principal</h2>
+      <nav>
+        <ul>
+          <li><a href="inicio.html" target="contenidoFrame" class="activo">Inicio</a></li>
+          <li><a href="presentacion.html" target="contenidoFrame">Presentación</a></li>
+          <li><a href="recursos.html" target="contenidoFrame">Recursos</a></li>
+          <li><a href="actividades.html" target="contenidoFrame">Actividades</a></li>
+          <li><a href="evaluacion.html" target="contenidoFrame">Evaluación</a></li>
+          <li><a href="contacto.html" target="contenidoFrame">Contacto</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="contenido">
+      <iframe
+        class="marco-contenido"
+        name="contenidoFrame"
+        src="inicio.html"
+        title="Contenido principal">
+      </iframe>
+    </main>
+  </div>
+
+  <script>
+    const enlaces = document.querySelectorAll('.menu-lateral a');
+
+    enlaces.forEach(enlace => {
+      enlace.addEventListener('click', function () {
+        enlaces.forEach(item => item.classList.remove('activo'));
+        this.classList.add('activo');
+      });
+    });
+  </script>
+</body>
+</html>
+
+<!--
+ARCHIVOS HTML QUE DEBE CREAR EN LA MISMA CARPETA:
+
+1. inicio.html
+2. presentacion.html
+3. recursos.html
+4. actividades.html
+5. evaluacion.html
+6. contacto.html
+
+Ejemplo básico para cada archivo:
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      padding: 30px;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    h1 {
+      color: #1f4e79;
+      margin-bottom: 15px;
+    }
+
+    .tarjeta {
+      background: #ffffff;
+      border: 1px solid #d9e2ec;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    }
+  </style>
+</head>
+<body>
+  <div class="tarjeta">
+    <h1>Inicio</h1>
+    <p>Contenido correspondiente a la página de inicio.</p>
+  </div>
+</body>
+</html>
+-->
+
